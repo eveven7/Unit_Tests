@@ -28,7 +28,7 @@ public class Library {
                 .filter(a -> Objects.equals(a.getBookTitle(), title))
                 .collect(Collectors.toList());
     }
-    public Optional<Book> findByTitle() {
+    public Optional<Book> findMaxPages() {
     return books.stream().max(Comparator.comparingInt(Book::getNumberPages));
 
     }

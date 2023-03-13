@@ -9,8 +9,10 @@ import org.mockito.Mock;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 import static org.assertj.core.api.Assertions.assertThat;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.mockito.Mockito.when;
 
 public class LibraryTest {
@@ -22,7 +24,8 @@ public class LibraryTest {
 
     @InjectMocks
     Library lib;
-
+    @Mock
+    private List<Book> mockedBooks;
 
     @Test
     public void addNumbers_shouldReturnCorrectSum_withPositiveNumbers() {
@@ -46,4 +49,29 @@ public class LibraryTest {
         when(calculator).thenReturn(false);
 
     }
+
+    @Test
+    public void ShouldPrintAllBooks() {
+        when(mockedBooks.get(0)).thenReturn(new Book("Joyful life",100 ));
+
+        assertEquals(100, library.printAllBooks().get(0).getNumberPages());
+        assertEquals("Joyful life", library.printAllBooks().get(0).getBookTitle());
+    }
+
+    @Test
+    public void Should_GetNumberOfBooks() {
+        when(mockedBooks.size()).thenReturn(4);
+        assertEquals(4, library.numberOfBooks());
+    }
+    @Test
+    public void Should_FindBookWithMaxPages_WhenLibraryHasBooks() {
+        when(mockedBooks.size()).thenReturn(2);
+        when(mockedBooks.get(0)).thenReturn(new Book("title1", 55 ));
+        when(mockedBooks.get(1)).thenReturn(new Book("title2",43 ));
+S
+        Optional<Book> actual = library.findMaxPages();
+
+        assertEquals(55, actual.getNumberPages());
+    }
+
 }
