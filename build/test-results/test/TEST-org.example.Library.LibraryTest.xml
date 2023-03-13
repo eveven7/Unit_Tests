@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="org.example.Library.LibraryTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2023-03-13T15:15:11" hostname="LEGION" time="0.054">
+  <properties/>
+  <testcase name="addNumbers_shouldReturnCorrectSum_withPositiveNumbers()" classname="org.example.Library.LibraryTest" time="0.054"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>
